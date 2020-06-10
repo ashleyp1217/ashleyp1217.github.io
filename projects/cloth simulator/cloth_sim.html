@@ -29,7 +29,6 @@
       font-family: 'DM Serif Display', serif;
       margin-top: 0px;
       margin-bottom:0px;
-      text-shadow: 2px 2px 0  #F8DE33;
       font-size: 45px;
 
     }
@@ -42,33 +41,16 @@
 
     }
 
-    .header{
-      height: 30px;
-      width: 100%;
-      margin-top: 10px;
-      margin-bottom:10px;
+
+
+    .highlight {
+      background:url('../../images/bluestroke.png');
+      background-repeat: no-repeat;
+      background-size: 100% 95%;
+      padding: 8px 0;
 
     }
 
-    .footer{
-      position: absolute;
-      bottom:10px;
-      text-align: center;
-      width:100%;
-
-    }
-    .container {
-      position: relative;
-      width:125px;
-      height:50px;
-      margin-right:20px;
-      margin-top:10px;
-      box-shadow:4px 4px 0 2px #F8DE33;
-      background-color: #FFF7C5;
-      border-radius:5px;
-      padding:10px;
-      font-size:10px;
-    }
 
 
 
@@ -81,46 +63,35 @@
 
 <body>
 
+  <a href="../../projects.html" target="_blank" style='margin-left:20px;color: inherit;text-decoration:none'>
+    <i class="fa fa-arrow-circle-o-left" ></i>
+    BACK TO PROJECTS
+  </a>
 
-  <div class='header'>
-    <div class='row' style='margin-left:10px; margin-right:20px'>
+<div class='row' style='padding:10px;margin-top:20px;'>
 
-      <div class='col-12' align = right style='color:black; margin-top:2px'>
-        <a href="../index.html" style='color: inherit;'>
-          HOME
-        </a>
-        |
-        <a href="../projects.html" style='color: inherit;'>
-          PROJECTS
-        </a>
-
-      </div>
+  <div class='col-10'>
+    <h1 align="left"><span class='highlight'>&nbsp;c l o t h&nbsp;&nbsp;s i m u l a t o r&nbsp;</span></h1>
+    <p style='margin-top:20px;margin-left:10px'>Computer Graphics & Imaging | <i>Spring 2019</i></p>
 
   </div>
-  </div>
 
-<div class='row' style='padding:10px'>
+  <div class='col-2' >
 
-  <div class='col-8'>
-    <h1 align="left"><i>CLOTH SIMULATOR</i></h1>
-    <p>Computer Graphics & Imaging | <i>Spring 2019</i></p>
-  </div>
-
-  <div class='col-4' >
-
-    <div class='container' align='center' style="padding:7px; font-size:12px;">
+    <div align='center' style="margin-right:30px; font-size:12px;">
 
       <a href="https://github.com/ashleyp1217/cloth_simulation" target="_blank" style='color: inherit;text-decoration:none'>
-        View code for <br>this project
-        <i class="fa fa-github" style='font-size:16px;'></i>
+        <i class="fa fa-github" style='font-size:80px;'></i>
+        <p>VIEW CODE</p>
       </a>
     </div>
+
   </div>
 
 </div>
 
 
-<img class='img' src="../images/cloth_sim.png" width='300px'align='left' style='padding:20px'/>
+<img class='img' src='cloth_sim.png' width='300px'align='left' style='padding:20px'/>
 
 <div class='overview' style='padding:20px'>
 <p>In this project we used physics and a mass and spring model to create and simulate a piece of cloth. We started out by constructing our cloth with point masses and different types of springs: Structural, Shearing, and Bending. Then we were able to apply the laws of physics to get realistic motion. Since we are using point masses and springs we had to calculate the total force acting on each point mass and then calculate and update the point mass's position. Building upon these physical rules we are able to implement the cloth's interaction with other objects, interaction with itself, and different textures and lighting.</p>
@@ -439,5 +410,11 @@
         </table>
     </div>
 </div>
+
+<a href="../../projects.html" target="_blank" style='margin-left:20px; margin-top:20px;color: inherit;text-decoration:none'>
+  <i class="fa fa-arrow-circle-o-left" ></i>
+  BACK TO PROJECTS
+</a>
+
 </body>
 </html>

@@ -47,7 +47,7 @@
     }
 
     table, th, td {
-      border: 30px solid #FFF7C5;
+      border: 30px solid #FFFFFF;
 
     }
 
@@ -56,7 +56,7 @@
   width:200px;
   height:200px;
   margin:20px;
-  box-shadow:4px 4px 0 2px #FFF7C5;
+  box-shadow:4px 4px 0 2px #d7eefa;
   border-radius:5px;
 }
 
@@ -81,6 +81,22 @@
 }
 
 
+.highlight {
+  background:url('images/bluestroke.png');
+  background-repeat: no-repeat;
+  background-size: 100% 95%;
+  padding: 8px 0;
+
+}
+
+.headerlinks {
+  background:none;
+  background-repeat: no-repeat;
+  background-size: 100% 95%;
+  padding: 8px 0;
+
+}
+
 
   </style>
 </head>
@@ -92,31 +108,32 @@
     <div class='row' style='margin-left:10px; margin-right:20px'>
 
       <div class='col-12' align = right style='color:black; margin-top:2px'>
-        <a href="https://ashleyhpark.com/" style='color: inherit;'>
-          HOME
+        <a href="https://ashleyhpark.com"  style='color: inherit;text-decoration:none'>
+          <span class='headerlinks'>&nbsp;HOME&nbsp;</span>
         </a>
         |
-        <a href="projects.html" style='color: inherit;'>
-          PROJECTS
+        <a href="projects.html"  style='color: inherit;text-decoration:none'>
+          <span class='headerlinks'>&nbsp;ABOUT ME&nbsp;</span>
         </a>
 
       </div>
   </div>
   </div>
+
 <div class='PageTitle'>
   <div class='row' align=left style='margin-top:0px; margin-left:20px;margin-right:20px'>
     <h1 style='font-size:45px;' >
-    <p style='text-shadow: 2px 2px 0  #F8DE33;'><i>MY PROJECTS </i></p>
+      <span class='highlight'>&nbsp;p r o j e c t s&nbsp;</span>
     </h1>
   </div>
-  <div class='row' align=left style='margin-top:-10px; margin-left:20px;margin-right:20px'>
-    My projects
+  <div class='row' align=left style='margin-top:10px; margin-left:30px;margin-right:20px'>
+    Here are some projects that I've worked on over the past few years. Most of them cover topics explored in classes I took while at UC Berkeley, such as User Interface Design and Development (CS160) and Introduction to Computer Graphics (CS184). Feel free to click on any of them to read more about the project or to view the code on GitHub.
   </div>
 </div>
 
   <div class='ToFadeIn'>
-      <div class='row' style='margin-left:20px; margin-right:20px;margin-top:20px'>
-        <div class='col-12' align = center style='background-color:#FFF7C5; margin-top:20px;border-radius:5px;>
+      <div class='row' style='margin-left:20px; margin-right:20px;margin-top:10px'>
+        <div class='col-12' align = center style=' margin-top:20px;border-radius:5px;>
           <div class='row' >
             <div class='col-12' align= center >
               <table width=720px>
@@ -124,9 +141,9 @@
                         <td align="middle">
                         <div class='container' style='background:rgba(1,1,1, 0.03);padding:20px;border-style: double;border-color:rgba(0, 0, 0, 0.15)'>
                           <a href='comingsoon.html' style='text-decoration:none'/>
-                          <h1 style='font-size:18px; color:rgba(0, 0, 0, 0.75);'>This Website!</h1>
+                          <h1 style='font-size:18px; color:rgba(0, 0, 0, 0.75);'>This Website</h1>
                           <p style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.5);'>HTML/CSS/JS</p>
-                          <p align='left' style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.75);'>aslkdfjasldfj</p>
+                          <p align='center' style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.5);'>I made this website for fun as a way for me to showcase myself as well as some cool projects I've done over the years. Click this text to see the code.</p>
                         </div>
 
                         <td align="middle">
@@ -141,8 +158,8 @@
 
                         <td align="middle">
                         <div class='container' >
-                        <a href='cloth simulator/cloth_sim.html'/>
-                        <img class='img' src="images/cloth_sim.png" width="200px" />
+                        <a href='projects/cloth simulator/cloth_sim.html'/>
+                        <img class='img' src="projects/cloth simulator/cloth_sim.png" width="200px" />
                         <div class = 'text-block'>
                             <h1 style='font-size:18px; color:rgba(0, 0, 0, 0.75); margin-top:5px'>Cloth Simulator</h1>
                             <p style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.5);'>C++</p>
@@ -277,12 +294,20 @@
 
 $(".container").hover(
 function(){
-  $(this).css("box-shadow" , "4px 4px 0 4px #F8DE33");
+  $(this).css("box-shadow" , "4px 4px 0 4px #83c3e6");
 }, function() {
-  $(this).css("box-shadow" , "4px 4px 0 2px #FFF7C5");
+  $(this).css("box-shadow" , "4px 4px 0 2px #d7eefa");
 }
 );
 
+$(".headerlinks").hover(
+function(){
+  var imgurl = "images/bluestroke.png";
+  $(this).css("background-image" , "url(" + imgurl + ")");
+}, function() {
+  $(this).css("background-image" , "none");
+}
+);
 
 </script>
 
