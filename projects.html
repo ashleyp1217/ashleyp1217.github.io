@@ -30,11 +30,19 @@
       text-align: left;
       font-family: 'Open Sans', sans-serif;
     }
+
     h1 {
-      font-weight: 10;
+      font-weight: 0px;
       font-family: 'DM Serif Display', serif;
+      font-size:45px;
 
     }
+/**
+    @media screen and (min-width: 500px) {
+  h1 {
+     font-size: 45px;
+  }
+}**/
 
 
 
@@ -53,7 +61,7 @@
 
     .container {
   position: relative;
-  width:200px;
+  width:100%;
   height:200px;
   margin:20px;
   box-shadow:4px 4px 0 2px #d7eefa;
@@ -63,11 +71,11 @@
 .text-block {
   position: absolute;
   bottom: 0px;
-  background-color: rgba(255,255,255,.85);
+  background-color: rgba(255,255,255,1);
   color: black;
   padding:20px;
   height: 75px;
-  width:200px;
+  width:100%;
   background-opacity:50%;
   margin-left: -15px;
 }
@@ -86,7 +94,14 @@
   background-repeat: no-repeat;
   background-size: 100% 95%;
   padding: 8px 0;
+}
 
+.highlight2 {
+  background:url('images/bluestroke2.png');
+  background-repeat: no-repeat;
+  background-size: 100% 95%;
+  padding: 8px 0;
+  margin:0px 0px 20px 20px;
 }
 
 .headerlinks {
@@ -95,6 +110,51 @@
   background-size: 100% 95%;
   padding: 8px 0;
 
+}
+
+
+.pokedex {
+
+display: flex;
+flex-wrap: wrap;
+align-self:center;
+}
+
+.pokedex div {
+height: 175px;
+margin: 10px;
+text-align: center;
+width: 175px;
+box-shadow:none;
+border-style: double;
+border-radius:5px;
+border-color:#d4c387;
+}
+
+.pokedex h1 {
+font-family: 'DM Serif Display', serif;
+font-size: 18px;
+margin-top: 60px;
+margin-bottom:5px;
+margin-left:15px;
+margin-right:15px;
+color:rgba(0, 0, 0, 0.75);
+background-color: rgba(255, 255, 255, .97);
+border: blue;
+padding:4px;
+}
+
+.pokedex p {
+font-size: 12px;
+color:rgba(0, 0, 0, 0.7);
+margin-left:10px;
+margin-right:10px;
+margin-top:0px;
+margin-bottom:0px;
+}
+
+img {
+width: 50px;
 }
 
 
@@ -122,7 +182,7 @@
 
 <div class='PageTitle'>
   <div class='row' align=left style='margin-top:0px; margin-left:20px;margin-right:20px'>
-    <h1 style='font-size:45px;' >
+    <h1 >
       <span class='highlight'>&nbsp;p r o j e c t s&nbsp;</span>
     </h1>
   </div>
@@ -131,145 +191,110 @@
   </div>
 </div>
 
-  <div class='ToFadeIn'>
-      <div class='row' style='margin-left:20px; margin-right:20px;margin-top:10px'>
-        <div class='col-12' align = center style=' margin-top:20px;border-radius:5px;>
-          <div class='row'>
-            <div class='col-12' align= center >
-              <table width=720px>
-                <tr>
-                        <td align="middle">
-                        <div class='container' style='background:rgba(1,1,1, 0.03);padding:20px;border-style: double;border-color:rgba(0, 0, 0, 0.15)'>
-                          <a href='https://github.com/ashleyp1217/ashleyp1217.github.io' target="_blank" style='text-decoration:none'/>
-                          <h1 style='font-size:18px; color:rgba(0, 0, 0, 0.75);'>This Website</h1>
-                          <p style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.5);'>HTML/CSS/JS</p>
-                          <p align='center' style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.5);'>I made this website for fun as a way for me to showcase myself as well as some cool projects I've done over the years. Click this text to see the code.</p>
-                        </div>
+  <div class='ToFadeIn' style='margin-top:20px'>
+    <div class='row'>
+    <div class='col-2'>
+    </div>
+    <div class='col-10'>
+    <div class="pokedex">
 
-                        <td align="middle">
-                        <div class='container'>
-                          <a href='comingsoon.html'/>
-                        <img class='img' id='proj2' src="images/ontherun.png" width="200px" />
-                        <div class = 'text-block'>
-                            <h1 style='font-size:18px; color:rgba(0, 0, 0, 0.75); margin-top:5px'>On The Run</h1>
-                            <p style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.5);'>HTML/CSS/JS</p>
-                        </div>
-                        </div>
+      <span class='highlight2'>
+      <a href='https://github.com/ashleyp1217/ashleyp1217.github.io' target="_blank" style='text-decoration:none'>
+      <div style='background:rgba(255,255,255, 0.3)'>
+        <h1 style='margin-top:10px; margin-bottom:5px;'>This Website</h1>
+        <p>HTML/CSS/JS</p>
+        <p>I made this website for fun to showcase myself as well as some cool projects I've done over the years. Click to view the code!</p>
+      </div>
+    </a>
+    </span>
 
-                        <td align="middle">
-                        <div class='container' >
-                        <a href='projects/cloth simulator/cloth_sim.html'/>
-                        <img class='img' src="projects/cloth simulator/cloth_sim.png" width="200px" />
-                        <div class = 'text-block'>
-                            <h1 style='font-size:18px; color:rgba(0, 0, 0, 0.75); margin-top:5px'>Cloth Simulator</h1>
-                            <p style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.5);'>C++</p>
-                        </div>
-                        </div>
-                </tr>
+    <span class='highlight2'>
+    <a href='projects/cloth simulator/cloth_sim.html' style='text-decoration:none'>
+      <div id = "clothsim">
+        <h1>Cloth Simulator</h1>
+        <p>C++</p>
+      </div>
+    </a>
+    </span>
 
+    <span class='highlight2'>
+    <a href='projects/jello/jello.html' style='text-decoration:none'>
+      <div id = "jello">
+        <h1>Jello Simulator</h1>
+        <p>C++</p>
+      </div>
+    </a>
+    </span>
 
-                <tr>
-                        <td align="middle">
-                        <div class='container'>
-                          <a href='comingsoon.html'/>
-                        <img class='img' src="images/weather.png" width="200px" />
-                        <div class = 'text-block'>
-                            <h1 style='font-size:18px; color:rgba(0, 0, 0, 0.75); margin-top:5px'>Weather App UI</h1>
-                            <p style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.5);'>HTML/CSS/JS</p>
-                        </div>
-                        </div>
+    <span class='highlight2'>
+    <a href='projects/jello/jello.html' style='text-decoration:none'>
+      <div id = "pathtracer1">
+        <h1>Path Tracer (part 1)</h1>
+        <p>C++</p>
+      </div>
+    </a>
+    </span>
 
-                        <td align="middle">
-                        <div class='container'>
-                          <a href='comingsoon.html'/>
-                        <img class='img' src="images/me.JPG" width="200px"/>
-                        <div class = 'text-block'>
-                            <h1 style='font-size:18px; color:rgba(0, 0, 0, 0.75); margin-top:5px'>Art App UI</h1>
-                            <p style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.5);'>HTML/CSS/JS</p>
-                        </div>
-                        </div>
+    <span class='highlight2'>
+    <a href='projects/jello/jello.html' style='text-decoration:none'>
+      <div id = "pathtracer2">
+        <h1>Path Tracer (part 2)</h1>
+        <p>C++</p>
+      </div>
+    </a>
+    </span>
 
-                        <td align="middle">
-                        <div class='container'>
-                          <a href='comingsoon.html'/>
-                        <img class='img' src="images/me.JPG" width="200px" />
-                        <div class = 'text-block'>
-                            <h1 style='font-size:18px; color:rgba(0, 0, 0, 0.75); margin-top:5px'>Spam/Ham</h1>
-                            <p style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.5);'>Python</p>
-                        </div>
-                        </div>
-                </tr>
+    <span class='highlight2'>
+    <a href='projects/jello/jello.html' style='text-decoration:none'>
+      <div id = "meshedit">
+        <h1>Mesh Edit</h1>
+        <p>C++</p>
+      </div>
+    </a>
+    </span>
 
+    <span class='highlight2'>
+    <a href='projects/jello/jello.html' style='text-decoration:none'>
+      <div id = "rasterizer">
+        <h1>Rasterizer</h1>
+        <p>C++</p>
+      </div>
+    </a>
+    </span>
 
-                <tr>
-                  <td align="middle">
-                  <div class='container'>
-                    <a href='projects/jello/jello.html'/>
-                  <img class='img' src="projects/jello/images/falling.png" width="200px"/>
-                  <div class = 'text-block'>
-                      <h1 style='font-size:18px; color:rgba(0, 0, 0, 0.75); margin-top:5px'>Raining Jello</h1>
-                      <p style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.5);'>C++</p>
-                  </div>
-                  </div>
+    <span class='highlight2'>
+    <a href='projects/jello/jello.html' style='text-decoration:none'>
+      <div id = "ontherun">
+        <h1>On The Run</h1>
+        <p>HTML/CSS/JS</p>
+      </div>
+    </a>
+    </span>
 
-                  <td align="middle">
-                  <div class='container'>
-                    <a href='comingsoon.html'/>
-                  <img class='img' src="images/me.JPG" width="200px"/>
-                  <div class = 'text-block'>
-                      <h1 style='font-size:18px; color:rgba(0, 0, 0, 0.75); margin-top:5px'>Path Tracer (Part 1)</h1>
-                      <p style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.5);'>C++</p>
-                  </div>
-                  </div>
+    <span class='highlight2'>
+    <a href='projects/jello/jello.html' style='text-decoration:none'>
+      <div id = "weather">
+        <h1>Weather App UI</h1>
+        <p>HTML/CSS/JS</p>
+      </div>
+    </a>
+    </span>
 
+    <span class='highlight2'>
+    <a href='projects/jello/jello.html' style='text-decoration:none'>
+      <div id = "artapp">
+        <h1>Art App UI</h1>
+        <p>HTML/CSS/JS</p>
+      </div>
+    </a>
+    </span>
 
-                  <td align="middle">
-                  <div class='container'>
-                    <a href='comingsoon.html'/>
-                  <img class='img' src="images/me.JPG" width="200px" />
-                  <div class = 'text-block'>
-                      <h1 style='font-size:18px; color:rgba(0, 0, 0, 0.75); margin-top:5px'>Path Tracer (Part 2)</h1>
-                      <p style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.5);'>C++</p>
-                  </div>
-                  </div>
-
-                </tr>
-
-
-                <tr>
-                  <td align="middle">
-                  <div class='container' >
-                    <a href='comingsoon.html'/>
-                  <img class='img' src="images/me.JPG" width="200px" />
-                  <div class = 'text-block'>
-                      <h1 style='font-size:18px; color:rgba(0, 0, 0, 0.75); margin-top:5px'>Mesh Edit</h1>
-                      <p style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.5);'>C++</p>
-                  </div>
-                  </div>
-
-                  <td align="middle">
-                  <div class='container'>
-                    <a href='comingsoon.html'/>
-                  <img class='img' src="images/me.JPG" width="200px" />
-                  <div class = 'text-block'>
-                      <h1 style='font-size:18px; color:rgba(0, 0, 0, 0.75); margin-top:5px'>Rasterizer</h1>
-                      <p style='font-size:12px;margin-top:-10px; color:rgba(0, 0, 0, 0.5);'>C++</p>
-                  </div>
-                  </div>
-
-
-
-
-                </tr>
-
-
-                  </table>
-              </div>
-
-
-            </div>
-          </div>
+    </div>
+  </div>
+  <div class='col-2'>
+  </div>
 </div>
+
 
 <div class='footer' style='margin-top:40px;font-size:12px' align=center>
   ashleyp1217@gmail.com |
@@ -282,7 +307,7 @@
   </a>
 
 </div>
-
+</div>
 
 <script>
 
@@ -292,22 +317,55 @@
     $('.footer').delay(400).fadeIn(1000).removeClass('hidden');
   });
 
-$(".container").hover(
+  $(".pokedex div").hover(
+  function(){
+    $(this).css("box-shadow" , "4px 4px 0 2px #ebdca9");
+    $(this).css("background-color" , " rgba(255,255,255,0.6)");
+  }, function() {
+    $(this).css("box-shadow" , "none");
+    $(this).css("background-color" , " rgba(255,255,255,0.3)");
+  }
+  );
+
+  $(".headerlinks").hover(
+  function(){
+    var imgurl = "images/bluestroke.png";
+    $(this).css("background-image" , "url(" + imgurl + ")");
+  }, function() {
+    $(this).css("background-image" , "none");
+  }
+  );
+
+
+$("#clothsim").hover(
 function(){
-  $(this).css("box-shadow" , "4px 4px 0 4px #83c3e6");
+  var imgurl="images/cloth_sim.png";
+  $(this).css("background" , "url("+imgurl+")");
+  $(this).css("background-size" , "cover");
+  $(this).css("background-color" , " rgba(255,255,255,0.6)");
+  $(this).css("background-blend-mode" , "overlay");
+
 }, function() {
-  $(this).css("box-shadow" , "4px 4px 0 2px #d7eefa");
+  $(this).css("background" , "none");
+  $(this).css("background-color" , "none");
+
 }
 );
 
-$(".headerlinks").hover(
+$("#jello").hover(
 function(){
-  var imgurl = "images/bluestroke.png";
-  $(this).css("background-image" , "url(" + imgurl + ")");
+  var imgurl="projects/jello/images/falling.png";
+  $(this).css("background" , "url("+imgurl+")");
+  $(this).css("background-size" , "cover");
+  $(this).css("background-color" , " rgba(255,255,255,0.6)");
+  $(this).css("background-blend-mode" , "overlay");
 }, function() {
-  $(this).css("background-image" , "none");
+  $(this).css("background" , "none");
+  $(this).css("background-color" , "none");
 }
 );
+
+
 
 </script>
 

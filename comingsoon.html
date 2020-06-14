@@ -38,12 +38,40 @@
     }
 
     .footer{
-      position: absolute;
       bottom:10px;
       text-align: center;
       width:100%;
 
     }
+
+
+    .pokedex {
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pokedex div {
+  background-size: cover;
+  background-image: url('images/me.jpg');
+  height: 150px;
+  margin: 10px;
+  text-align: center;
+  width: 150px;
+  box-shadow:4px 4px 0 2px #d7eefa;
+  border-style: double;
+  border-radius:5px;
+  border-color:rgba(0, 0, 0, 0.15);
+}
+
+p {
+  font-size: 12px;
+  margin: 3px;
+}
+
+img {
+  width: 50px;
+}
 
 
 
@@ -75,6 +103,53 @@
 </div>
 
 
+
+<div class="pokedex">
+  <div>
+    <p>Pokemon 1</p>
+    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png">
+    <p>Bulbasaur</p>
+  </div>
+  <div>
+    <p>Pokemon 2</p>
+    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/002.png">
+    <p>Ivysaur</p>
+  </div>
+    <div>
+    <p>Pokemon 3</p>
+    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/003.png">
+    <p>Venusaur</p>
+  </div>
+    <div>
+    <p>Pokemon 4</p>
+    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/004.png">
+    <p>Charmander</p>
+  </div>
+    <div>
+    <p>Pokemon 5</p>
+    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/005.png">
+    <p>Charmeleon</p>
+  </div>
+    <div>
+    <p>Pokemon 6</p>
+    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/006.png">
+    <p>Charizard</p>
+  </div>
+    <div>
+    <p>Pokemon 7</p>
+    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/007.png">
+    <p>Squirtle</p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 <div class='footer' style='margin-top:40px;font-size:12px' align=center>
   ashleyp1217@gmail.com |
   <a href="https://github.com/ashleyp1217" target="_blank" style='color: inherit;'>
@@ -87,7 +162,15 @@
 
 </div>
 
-
+<script>
+$(".pokedex div").hover(
+function(){
+  $(this).css("box-shadow" , "4px 4px 0 4px #83c3e6");
+}, function() {
+  $(this).css("box-shadow" , "4px 4px 0 2px #d7eefa");
+}
+);
+</script>
 
 
 
