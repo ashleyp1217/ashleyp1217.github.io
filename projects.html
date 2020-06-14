@@ -209,7 +209,7 @@ width: 50px;
     </span>
 
     <span class='highlight2'>
-    <a href='projects/cloth simulator/cloth_sim.html' style='text-decoration:none'>
+    <a href='projects/clothsim/cloth_sim.html' style='text-decoration:none'>
       <div id = "clothsim">
         <h1>Cloth Simulator</h1>
         <p>C++</p>
@@ -227,7 +227,7 @@ width: 50px;
     </span>
 
     <span class='highlight2'>
-    <a href='projects/jello/jello.html' style='text-decoration:none'>
+    <a href='projects/pathtracer1/pathtracer1.html' style='text-decoration:none'>
       <div id = "pathtracer1">
         <h1>Path Tracer (part 1)</h1>
         <p>C++</p>
@@ -236,7 +236,7 @@ width: 50px;
     </span>
 
     <span class='highlight2'>
-    <a href='projects/jello/jello.html' style='text-decoration:none'>
+    <a href='projects/pathtracer2/pathtracer2.html' style='text-decoration:none'>
       <div id = "pathtracer2">
         <h1>Path Tracer (part 2)</h1>
         <p>C++</p>
@@ -245,7 +245,7 @@ width: 50px;
     </span>
 
     <span class='highlight2'>
-    <a href='projects/jello/jello.html' style='text-decoration:none'>
+    <a href='projects/meshedit/meshedit.html' style='text-decoration:none'>
       <div id = "meshedit">
         <h1>Mesh Edit</h1>
         <p>C++</p>
@@ -254,7 +254,7 @@ width: 50px;
     </span>
 
     <span class='highlight2'>
-    <a href='projects/jello/jello.html' style='text-decoration:none'>
+    <a href='projects/rasterizer/rasterizer.html' style='text-decoration:none'>
       <div id = "rasterizer">
         <h1>Rasterizer</h1>
         <p>C++</p>
@@ -263,7 +263,7 @@ width: 50px;
     </span>
 
     <span class='highlight2'>
-    <a href='projects/jello/jello.html' style='text-decoration:none'>
+    <a href='projects/ontherun/ontherun.html' style='text-decoration:none'>
       <div id = "ontherun">
         <h1>On The Run</h1>
         <p>HTML/CSS/JS</p>
@@ -272,7 +272,7 @@ width: 50px;
     </span>
 
     <span class='highlight2'>
-    <a href='projects/jello/jello.html' style='text-decoration:none'>
+    <a href='projects/weatherapp/CS160_Proj1.html' style='text-decoration:none'>
       <div id = "weather">
         <h1>Weather App UI</h1>
         <p>HTML/CSS/JS</p>
@@ -281,7 +281,7 @@ width: 50px;
     </span>
 
     <span class='highlight2'>
-    <a href='projects/jello/jello.html' style='text-decoration:none'>
+    <a href='projects/artapp/CS160Proj2DesignReport.html' style='text-decoration:none'>
       <div id = "artapp">
         <h1>Art App UI</h1>
         <p>HTML/CSS/JS</p>
@@ -355,6 +355,97 @@ function(){
 $("#jello").hover(
 function(){
   var imgurl="projects/jello/images/falling.png";
+  $(this).css("background" , "url("+imgurl+")");
+  $(this).css("background-size" , "cover");
+  $(this).css("background-color" , " rgba(255,255,255,0.6)");
+  $(this).css("background-blend-mode" , "overlay");
+}, function() {
+  $(this).css("background" , "none");
+  $(this).css("background-color" , "none");
+}
+);
+
+$("#pathtracer1").hover(
+function(){
+  var imgurl="projects/pathtracer1/images/part5.png";
+  $(this).css("background" , "url("+imgurl+")");
+  $(this).css("background-size" , "cover");
+  $(this).css("background-color" , " rgba(255,255,255,0.6)");
+  $(this).css("background-blend-mode" , "overlay");
+}, function() {
+  $(this).css("background" , "none");
+  $(this).css("background-color" , "none");
+}
+);
+
+$("#pathtracer2").hover(
+function(){
+  var imgurl="projects/pathtracer2/images/part4_fd1.0.png";
+  $(this).css("background" , "url("+imgurl+")");
+  $(this).css("background-size" , "cover");
+  $(this).css("background-color" , " rgba(255,255,255,0.6)");
+  $(this).css("background-blend-mode" , "overlay");
+}, function() {
+  $(this).css("background" , "none");
+  $(this).css("background-color" , "none");
+}
+);
+
+$("#meshedit").hover(
+function(){
+  var imgurl="projects/meshedit/meshedit.png";
+  $(this).css("background" , "url("+imgurl+")");
+  $(this).css("background-size" , "cover");
+  $(this).css("background-color" , " rgba(255,255,255,0.6)");
+  $(this).css("background-blend-mode" , "overlay");
+}, function() {
+  $(this).css("background" , "none");
+  $(this).css("background-color" , "none");
+}
+);
+
+$("#rasterizer").hover(
+function(){
+  var imgurl="projects/rasterizer/images/rasterizer.png";
+  $(this).css("background" , "url("+imgurl+")");
+  $(this).css("background-size" , "cover");
+  $(this).css("background-color" , " rgba(255,255,255,0.6)");
+  $(this).css("background-blend-mode" , "overlay");
+}, function() {
+  $(this).css("background" , "none");
+  $(this).css("background-color" , "none");
+}
+);
+
+$("#weather").hover(
+function(){
+  var imgurl="images/weather.png";
+  $(this).css("background" , "url("+imgurl+")");
+  $(this).css("background-size" , "cover");
+  $(this).css("background-color" , " rgba(255,255,255,0.6)");
+  $(this).css("background-blend-mode" , "overlay");
+}, function() {
+  $(this).css("background" , "none");
+  $(this).css("background-color" , "none");
+}
+);
+
+$("#artapp").hover(
+function(){
+  var imgurl="projects/artapp/images/image12.png";
+  $(this).css("background" , "url("+imgurl+")");
+  $(this).css("background-size" , "cover");
+  $(this).css("background-color" , " rgba(255,255,255,0.6)");
+  $(this).css("background-blend-mode" , "overlay");
+}, function() {
+  $(this).css("background" , "none");
+  $(this).css("background-color" , "none");
+}
+);
+
+$("#ontherun").hover(
+function(){
+  var imgurl="projects/ontherun/ontherun.png";
   $(this).css("background" , "url("+imgurl+")");
   $(this).css("background-size" , "cover");
   $(this).css("background-color" , " rgba(255,255,255,0.6)");
