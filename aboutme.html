@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ashley Park | About Me</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap/css/bootstrap.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/bba56112c9.js"></script>
+  <script src="{% static '/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+	<script src="{% static '/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+  <style>
+
+  .PageTitle, .ToFadeIn, .footer{
+    display:none
+  }
+
+    body {
+      padding: 20px;
+      text-align: left;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    h1 {
+      font-weight: 0px;
+      font-family: 'DM Serif Display', serif;
+      font-size:45px;
+      letter-spacing:0.5em;
+
+    }
+
+    header{
+      height: 30px;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom:10px;
+
+    }
+
+.highlight {
+  background:url('images/bluestroke.png');
+  background-repeat: no-repeat;
+  background-size: 100% 95%;
+  padding: 8px 0;
+}
+
+.highlight2 {
+  background:url('images/bluestroke2.png');
+  background-repeat: no-repeat;
+  background-size: 100% 95%;
+  padding: 8px 0;
+  margin:0px 0px 20px 20px;
+}
+
+.headerlinks {
+  background:none;
+  background-repeat: no-repeat;
+  background-size: 100% 95%;
+  padding: 8px 0;
+}
+
+
+
+  </style>
+</head>
+
+
+<body>
+
+<div class='header'>
+    <div class='row' style='margin-left:10px; margin-right:20px'>
+
+      <div class='col-12' align = right style='color:black; margin-top:2px'>
+        <a href="https://ashleyhpark.com"  style='color: inherit;text-decoration:none'>
+          <span class='headerlinks'>&nbsp;HOME&nbsp;</span>
+        </a>
+        |
+        <a href="projects.html"  style='color: inherit;text-decoration:none'>
+          <span class='headerlinks'>&nbsp;PROJECTS&nbsp;</span>
+        </a>
+
+      </div>
+  </div>
+  </div>
+
+<div class='PageTitle'>
+  <div class='row' align=left style='margin-top:0px; margin-left:20px;margin-right:20px'>
+    <h1 >
+      <span class='highlight'>&nbsp;about me&nbsp;</span>
+    </h1>
+  </div>
+</div>
+
+<div class='ToFadeIn' style='margin-top:60px; margin-left:30px;margin-right:20px'>
+
+  <img src="images/me.png" align=right style="background-size:cover;width:300px;border-radius:50%; border-width:7px;border-style:double; border-color:#d4c387;margin:-40px 10px 20px 30px"/>
+<p style='font-size:20px;margin-top:-15px;'><b><i>Hello, welcome to my website!</i></b></p>
+<p>
+I recently graudated from the University of California, Berkeley <a style='font-size:12px'><i>(go bears!)</i></a> double majoring in Astrophysics and Data Science with a domain emphasis in Physical Science Analytics. My majors allowed me to take a wide variety of classes throughout my four years at Berkeley, including Asian American Studies, Planetary Physics, and Computer Graphics. Exploring these different subjects ultimately allowed me to discover that my interests gravitate towards frontend development as well as data science/analytics.
+</p>
+<p>Currently, I am back home in SoCal trying to make use of this quarantine time by getting on that job hunt, building this website, and getting in those Chloe Ting YouTube workouts. Some other things to know about me are that I'm a Sagittarius, a fulltime babysitter for my dog Podi and cat Bean, as well as a Pokemon Master.</p>
+
+
+<h1 style='font-size:18px;letter-spacing:0.2em;margin-left:0px;margin-top:30px;'>
+  <span class='highlight' >&nbsp;CONTACT INFO:&nbsp;</span>
+  <a style="letter-spacing:0.1em">ashleyp1217@gmail.com</a>
+</h1>
+
+</div>
+
+
+
+<div class='footer' style='margin-top:40px;font-size:12px' align=center>
+  ashleyp1217@gmail.com |
+  <a href="https://github.com/ashleyp1217" target="_blank" style='color: inherit;'>
+    github.com/ashleyp1217
+  </a>
+  |
+  <a href="https://github.com/ashleyp1217" target="_blank" style='color: inherit;'>
+    linkedin.com/in/ashleyp1217
+  </a>
+
+</div>
+
+<script>
+
+  $(document).ready(function () {
+    $('.PageTitle').fadeIn(1000).removeClass('hidden');
+    $('.ToFadeIn').delay(200).fadeIn(1000).removeClass('hidden');
+    $('.footer').delay(400).fadeIn(1000).removeClass('hidden');
+  });
+
+  $(".headerlinks").hover(
+  function(){
+    var imgurl = "images/bluestroke.png";
+    $(this).css("background-image" , "url(" + imgurl + ")");
+  }, function() {
+    $(this).css("background-image" , "none");
+  }
+  );
+
+
+
+</script>
+
+
+  </body>
+  </html>
