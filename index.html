@@ -85,10 +85,9 @@
   <div class='header'>
     <div class='row' style='margin-left:10px; margin-right:20px'>
 
-      <div class='col-4' align=left style='color:white; font-size:36px;margin-top:-2px'>
-        <a href="comingsoon.html" style='color: inherit;'>
-          <i class="fa fa-paw" aria-hidden="true" style='margin-right:10px;'></i>
-
+      <div class='col-4' align=left style=' font-size:24px;margin-top:-2px'>
+        <a href="secretpage.html" style='color: inherit;'>
+          <i id="secret_icon" class="fa fa-paw" aria-hidden="true" style='margin-right:10px;color:white;background:none;padding:5px;border-radius:50%'></i>
         </a>
 
       </div>
@@ -122,7 +121,7 @@
     </a>
 
 
-      <i class="fa fa-smile-o" style='margin-right:10px;'></i>
+      <i id='smiley' class="fa fa-smile-o" style='margin-right:10px;'></i>
 
 
     <a href="https://linkedin.com/in/ashleyp1217" target="_blank" style='color: inherit;text-decoration:none'>
@@ -161,6 +160,17 @@
       $(this).css("background-image" , "url(" + imgurl + ")");
     }, function() {
       $(this).css("background-image" , "none");
+    }
+    );
+
+
+
+    $("#smiley").hover(
+    function(){
+      var imgurl = "images/bluestroke.png";
+      $("#secret_icon").css("background" , "#d4c387");
+    }, function() {
+      $("#secret_icon").css("background" , "none");
     }
     );
 
