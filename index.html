@@ -71,10 +71,23 @@
 
     }
 
+    .secretmessage{
+      text-align:center;
+      margin:auto;
+      font-size:12px;
+      padding:5px;
+      margin-top:20px;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typing 15s steps(300,end);
+
+    }
 
 
-
-
+        @keyframes typing {
+            from {width: 0}
+            to {width: 100%}
+        }
 
 
   </style>
@@ -131,6 +144,10 @@
 
   </h1>
 
+  <div class="secretmessage" align="center" style='display:none;'>
+  <a>Welcome to my website :)</a>
+  </div>
+
 
 </div>
   <div class='footer' align='center' >
@@ -165,14 +182,24 @@
 
 
 
-    $("#smiley").hover(
+    $("#smiley").click(
     function(){
-      var imgurl = "images/bluestroke.png";
-      $("#secret_icon").css("background" , "#d4c387");
-    }, function() {
-      $("#secret_icon").css("background" , "none");
+      $(".secretmessage").toggle();
     }
     );
+
+
+    var timeoutId = 0;
+
+    $('#smiley').on('mousedown', function() {
+    timeoutId = setTimeout(function(){
+      $("#secret_icon").css("background" , "#89bed9");
+    }, 1000);
+    }).on('mouseup mouseleave', function() {
+    clearTimeout(timeoutId);
+    $("#secret_icon").css("background" , "none");
+    });
+
 
 
 
