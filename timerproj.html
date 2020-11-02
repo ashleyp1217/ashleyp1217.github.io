@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ashley Park | Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/bba56112c9.js"></script>
+  <script src="{% static '/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+	<script src="{% static '/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+  <style>
+
+    body {
+      padding: 20px;
+      text-align: left;
+      font-family: 'Open Sans', sans-serif;
+    }
+    h1 {
+      font-weight: 0px;
+      font-family: 'DM Serif Display', serif;
+
+    }
+
+    .header{
+      height: 30px;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom:10px;
+
+    }
+
+    .footer{
+      bottom:10px;
+      text-align: center;
+      width:100%;
+
+    }
+
+    input{
+      width:40px;
+      type:text;
+    }
+
+
+
+
+
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class='header'>
+    <div class='row' style='margin-left:10px; margin-right:20px'>
+
+      <div class='col-12' align = right style='color:black; margin-top:2px'>
+        <a href="index.html" style='color: inherit;'>
+          HOME
+        </a>
+        |
+        <a href="projects.html" style='color: inherit;'>
+          PROJECTS
+        </a>
+
+      </div>
+
+  </div>
+  </div>
+
+<div class='Title' style='margin-left:30px'>
+<h1>Workout Timer</h1>
+<p>Description here</p>
+</div>
+<div class='Clock' align='center'>
+<form>
+  <table style='margin-top:-50px;margin-bottom:-30px'>
+    <tr>
+      <td style='padding:50px' align='center'>
+        <label for="interval" >INTERVAL</label><br>
+        <input id="intervalmin" name="intervalmin" placeholder="00" style="text-align:right">
+        <a>:</a>
+        <input id="intervalsec" name="intervalsec" placeholder="30">
+      </td>
+      <td style='padding:50px' align='center'>
+        <label for="total">BREAK</label><br>
+        <input id="breakmin" name="breakmin" placeholder="00" style="text-align:right">
+        <a>:</a>
+        <input id="breaksec" name="breaksec" placeholder="05">
+      </td>
+      <td style='padding:50px' align='center'>
+        <label for="total">REPETITIONS</label><br>
+        <input id="reps" name="reps" placeholder="20" style="text-align:center">
+      </td>
+    </tr>
+  </table>
+</form>
+<button onclick="myFunction()" style='width:100px;margin-bottom:0px'>START</button>
+<div style='font-size:200px'><b><span id="mytime">00:00</span></b></div>
+<div style='font-size:20px'><b>Rep: <span id="myrep">0/20</span></b></div>
+</div>
+
+
+
+
+<div class='footer' style='margin-bottom:40px;margin-top:40px;font-size:12px' align=center>
+  ashleyp1217@gmail.com |
+  <a href="https://github.com/ashleyp1217" target="_blank" style='color: inherit;'>
+    github.com/ashleyp1217
+  </a>
+  |
+  <a href="https://github.com/ashleyp1217" target="_blank" style='color: inherit;'>
+    linkedin.com/in/ashleyp1217
+  </a>
+
+</div>
+
+
+
+<script>
+function startTimer(duration,display,onBreak,breaktime,repetitions,displayrep){
+  var timer = duration, minutes,seconds;
+  var rep = 1;
+  var t = setInterval(function(){
+    minutes = parseInt(timer/60,10);
+    seconds = parseInt(timer%60,10);
+
+    minutes = minutes<10? "0" + minutes :minutes;
+    seconds = seconds<10 ? "0" + seconds : seconds;
+
+    display.textContent = minutes + ":" + seconds;
+    displayrep.textContent = rep + "/" + repetitions;
+
+    if (--timer<0){
+      //when timer reaches zero
+      if (onBreak){
+        timer = duration;
+        onBreak=false;
+        ++rep;
+      }
+      else{
+
+        timer=breaktime;
+        onBreak=true;
+        if (rep===repetitions){
+          clearInterval(t);
+          setTimeout(function() {alert("Done!");}, 1000);
+        }
+      }
+  }
+},1000);
+
+}
+
+
+function myFunction(){
+    var onBreak = false;
+    var min = parseInt(document.getElementById("intervalmin").value);
+    if (isNaN(min)){
+      min = 0;
+    }
+    var sec = parseInt(document.getElementById("intervalsec").value);
+    if (isNaN(sec)){
+      sec = 30;
+    }
+
+    var breakmin = parseInt(document.getElementById("breakmin").value);
+    if (isNaN(breakmin)){
+      breakmin=0;
+    }
+    var breaksec = parseInt(document.getElementById("breaksec").value);
+    if(isNaN(breaksec)){
+      breaksec = 5;
+    }
+    breaktime = ((60*breakmin)+breaksec)
+
+    var repetitions = parseInt(document.getElementById("reps").value);
+    if (isNaN(repetitions)){
+      repetitions=20;
+    }
+
+    var x = ((60*min) + sec), display = document.querySelector('#mytime'),displayrep = document.querySelector('#myrep');
+
+    startTimer(x, display,onBreak,breaktime,repetitions,displayrep)
+}
+
+</script>
+
+</body>
