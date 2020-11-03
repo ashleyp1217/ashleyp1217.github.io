@@ -98,6 +98,29 @@
 
 
 
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(216,216,216,0.7); /* Black w/ opacity */
+}
+
+.modal-content {
+  color:white;;
+  background-color: rgba(216,216,216,0);
+  padding: 20px;
+  border:none;
+  font-size:300px;
+  text-shadow: 2px 2px grey;
+  letter-spacing: 3px;
+}
+
+
   </style>
 </head>
 
@@ -130,6 +153,13 @@
 
 
 
+<div class='modal' id = 'modal'>
+  <div class="modal-content" align='center'>
+    <p style='font-size:48px; margin-bottom:-80px; margin-top: 50px;'><b>STARTING IN</b></p>
+    <div><b><span id="starting_countdown">3</span></b></div>
+  </div>
+</div>
+
 
 <div class='Title' style='margin-left:30px'>
 <h1 align='center' style='margin-bottom: 20px; color:#3D3D3D'>Interval Timer</h1>
@@ -157,7 +187,9 @@
     </tr>
   </table>
 </form>
-<button onclick="myFunction()" ><b>START</b></button>
+
+<button id="startbutton" onclick="myFunction()"  style='display:inline'><b>START</b></button>
+<button id="pause_resume" class="pause" style='display:none'><span>PAUSE</span></button>
 
 
 
@@ -197,13 +229,19 @@
 
 
 <script>
+
+
+
 function startTimer(duration,display,onBreak,breaktime,repetitions,displayrep){
   var timer = duration, minutes,seconds;
   var totalduration = (timer*repetitions)+(breaktime*(repetitions-1));
   var rep = 1;
   var current_progress = 0;
+  var ispaused = false;
+
 
   var t = setInterval(function(){
+    if(!ispaused){
     minutes = parseInt(timer/60,10);
     seconds = parseInt(timer%60,10);
 
@@ -248,8 +286,14 @@ function startTimer(duration,display,onBreak,breaktime,repetitions,displayrep){
           setTimeout(function() {
             displayrep.textContent = rep + "/" + repetitions;
             alert("Done!");
+            //stop alarm once done
             document.getElementById('complete').pause();
             document.getElementById('complete').currentTime = 0;
+
+            document.querySelector('#starting_countdown').textContent = "3";
+            //switch buttons once complete
+            document.getElementById("startbutton").style.display = "inline";
+            document.getElementById("pause_resume").style.display = "none";
           }, 100);
 
         }
@@ -263,7 +307,22 @@ function startTimer(duration,display,onBreak,breaktime,repetitions,displayrep){
       }
       }
   }
+}
 },1000);
+
+$('.pause').on('click', function(e) {
+  e.preventDefault();
+  if(ispaused){
+    ispaused = false;
+    document.querySelector("#pause_resume").textContent = "PAUSE";
+  }
+  else{
+    ispaused=true;
+    document.querySelector("#pause_resume").textContent = "RESUME";
+
+  }
+});
+
 
 }
 
@@ -296,7 +355,27 @@ function myFunction(){
 
     var x = ((60*min) + sec), display = document.querySelector('#mytime'),displayrep = document.querySelector('#myrep');
 
-    startTimer(x, display,onBreak,breaktime,repetitions,displayrep)
+    //countdown from 3
+
+    var timer3=3;
+    document.getElementById("modal").style.display = "block";
+    var t3 = setInterval(function(){
+      document.querySelector('#starting_countdown').textContent = --timer3;
+      if(timer3<0){
+        clearInterval(t3);
+        document.getElementById("modal").style.display = "none";
+      }
+    },1000);
+    //switch buttons
+    document.getElementById("startbutton").style.display = "none";
+    document.getElementById("pause_resume").style.display = "inline";
+
+    //start timer
+    setTimeout(function(){
+      startTimer(x, display,onBreak,breaktime,repetitions,displayrep)
+    },3000);
+
+
 }
 
 </script>
