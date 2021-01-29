@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ashley Park | Interval Timer App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/bba56112c9.js"></script>
+  <script src="{% static '/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+	<script src="{% static '/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+  <style>
+
+    body {
+      padding: 40px;
+      text-align: left;
+      font-family: 'Open Sans', sans-serif;
+      font-size:16px;
+    }
+    h1 {
+      font-weight: 0px;
+      font-family: 'DM Serif Display', serif;
+      margin-top: 0px;
+      margin-bottom:0px;
+      font-size: 45px;
+      color: #e07a5f;
+
+    }
+
+    h2 {
+      font-weight: 0px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px;
+      color: #81b29a;
+      margin-top:20px;
+      font-style: italic;
+    }
+
+    h3 {
+      font-weight: 0px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color:#e07a5f;
+      margin-top:20px;
+      font-style: italic;
+    }
+
+    .highlight {
+      background:url('../../images/bluestroke.png');
+      background-repeat: no-repeat;
+      background-size: 100% 95%;
+      padding: 8px 0;
+    }
+
+    goalHeader {
+      font-weight: 0px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color:#e07a5f;
+      margin-top:20px;
+    }
+
+    #colorBox{
+      height: 50px;
+      width:50px;
+    }
+
+    
+
+    /* Color salmon = Color(0xFFe07a5f);
+Color cream = Color(0xFFf4f1de);
+Color midnight = Color(0xFF3d405b);
+Color sage = Color(0xFF81b29a);
+Color dijon = Color(0xFFf2cc8f); */
+</style>
+
+<title>Ashley Park | Interval Timer App</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+<body>
+
+  <a href="../../projects.html"  style='margin-left:20px;color: inherit;text-decoration:none'>
+    <i class="fa fa-arrow-circle-o-left" ></i>
+    BACK TO PROJECTS
+  </a>
+
+<div class='row' style='padding:20px;margin-top:20px;'>
+  <div class='col-10'>
+    <h1 align="left"><i>Interval Timer App</i></h1>
+    <h1><i>Design Report</i></h1>
+    <p style='margin-top:10px;'>iOS App Development | <i>January 2021</i></p>
+  </div>
+
+  <div class='col-2' >
+    <div align='right' style="margin-right:30px; margin-top:20px;font-size:12px;">
+      <a href="https://github.com/ashleyp1217/IntTimerApp" target="_blank" style='color: inherit;text-decoration:none'>
+        <i class="fa fa-github" style='font-size:48px;color:#3d405b'></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<div style='margin-right:20px; margin-left:20px'>
+
+<div align='center' style='margin-bottom:40px;'>
+  <!-- <img src="intTimer-screenRecord.gif" height="350px" /> -->
+</div>
+<p>
+My first attempt at developing an app! Using Dart and Google's Flutter.
+</p>
+
+<h2>The Inspiration</h2>
+<p>Over quarantine I got into doing a lot of home workout videos on YouTube. Shoutout to my favorite fitness YouTubers Blogilates, Chloe Ting, and Pamela Reif! A lot of these types of videos use interval training (<i>x</i> seconds on, <i>y</i> seconds rest), and I started to really enjoy this format for exercising. </p>
+<p>I decided to make an interval timer app because: </p>
+<ul>
+  <li>I want to do my own interval training workouts or workouts shared on platforms other than YouTube (ie Instagram)</li>
+  <li>YouTube has some limitations when it comes to workout videos.
+    <ul>
+      <li>I can't listen to my own music or watch Netflix while I workout</li>
+      <li>I feel limited to only doing these workouts at home. While having video to follow along to has its perks, sometimes it's unnecessary/inconvenient.</li>
+    </ul>
+  </li>
+  <li>I want a place to plan out workouts and organize/save them</li>
+  <li>I want to learn about app development</li>
+</ul>
+
+<h2>Goals</h2>
+<ol>
+  <li><goalHeader style='font-family: DM Serif Display; color:#e07a5f;'>Create a functioning interval timer. </goalHeader>The user should be able to input the ON time and OFF time, as well as choose whether to have the timer run indefinitely until cancelled, or to specify a number of repetitions. The timer should be able to pause/unpause, and have audio cues as to when the interval or timer is over.</li>
+  <li><goalHeader style='font-family: DM Serif Display; color:#e07a5f;'>Create a workout </goalHeader>Need to create a page for saved workouts as well as a page where the user can create one. The user can name this workout and save it. When a saved workout is played, the timer starts and displays which exercise to do at the top. The user chooses the ON and OFF time, and then can add as many exercises as they'd like. Can have the option for the app to read out the upcoming exercise so that the user doesn't have to check.
+    <ul>
+      <li>Learn how to integrate a SQL database for saved workouts.</li>
+    </ul>
+    <!-- <ul>
+      <li>Interval Training: The user can input the ON and OFF time, and then add as many exercises as they'd like. Can have the option for the app to read out which exercise is coming up next.</li>
+      <li>Circuit Training: List out exercises and how many reps, and do as many rounds as you can in the chosen interval. Created very similar to Interval Training, but different layout. </li>
+      <li>Reps: The user can write down a reps based workout. Can tap to add how many sets. Does not involve timer, mainly just for planning.</li>
+    </ul> -->
+  </li>
+  <li><goalHeader style='font-family: DM Serif Display; color:#e07a5f;'>Settings </goalHeader>A settings page. Toggle audio cues (voicing upcoming exercise, warning beeps for last three seconds, beeps for when the interval is over)</li>
+</ol>
+
+<h2>Mockups</h2>
+<p>Created using Adobe XD</p>
+<table style="width:400px" align='center'>
+  <tr>
+    <td></td>
+    <td><p align='middle' style = 'margin-bottom:0px;font-size:12px;font-style: italic;'>Basic Timer</p></td>
+    <td></td>
+  </tr>
+  <tr>
+      <td align="middle">
+      <img src="Mockups/Interval Timer.jpg" height="280px" />
+      </td>
+      <td align="middle">
+        <img src="Mockups/Timer.jpg" height="280px" />
+      </td>
+      <td align="middle">
+        <img src="Mockups/Timer – OFF – 1.jpg" height="280px" />
+      </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><p align='middle' style = 'margin-bottom:0px;font-size:12px;font-style: italic;'>Timer with reps</p></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td align="middle">
+    <img src="Mockups/Interval Timer - Reps.jpg" height="280px" />
+    </td>
+    <td align="middle">
+      <img src="Mockups/Timer – 1.jpg" height="280px" />
+    </td>
+    <td align="middle">
+      <img src="Mockups/Timer – OFF.jpg" height="280px" />
+    </td>
+</tr>
+<tr>
+  <td><p align='middle' style = 'margin-bottom:0px;font-size:12px;font-style: italic;'>Timer with workout</p></td>
+  <td></td>
+  <td><p align='middle' style = 'margin-bottom:0px;font-size:12px;font-style: italic;'>Create workout</p></td>
+</tr>
+<tr>
+  <td align="middle">
+  <img src="Mockups/Timer – 2.jpg" height="280px" />
+  </td>
+  <td align="middle">
+    <img src="Mockups/Timer – OFF – 2.jpg" height="280px" />
+  </td>
+  <td align="middle">
+    <img src="Mockups/Create Timer.jpg" height="280px" />
+  </td>
+</tr>
+<tr>
+  <td></td>
+  <td><p align='middle' style = 'margin-bottom:0px;font-size:12px;font-style: italic;'>Saved workouts</p></td>
+  <td></td>
+</tr>
+<tr>
+  <td align="middle">
+  <img src="Mockups/Saved Timers.jpg" height="280px" />
+  </td>
+  <td align="middle">
+    <img src="Mockups/Saved Timers – 5.jpg" height="280px" />
+  </td>
+  <td align="middle">
+    <img src="Mockups/Saved Timers – 3.jpg" height="280px" />
+  </td>
+</tr>
+</table>
+<hr>
+<h2>Progress</h2>
+
+<h3>January 27, 2021 </h3>
+<p style = 'font-size:14px;margin-top:-5px;margin-bottom:0px;color:#3d405b'>Created a functioning interval timer</p>
+<p style = 'font-size:14px; color:rgb(129, 129, 129)'><i>This took me a little under a week to complete. Overall I think learning how to use Flutter and getting used to Dart is going pretty smoothly. The hardest part was definitely getting the audio cues in. I wanted there to be beeps to countdown the final three seconds of every interval as kind of a warning that the interval is about to end, and then a different sound when the interval actually ends. CircularCountDownTimer has a parameter to trigger an action once the timer is completed, but can't trigger an action at a specific point during the timer. At first I tried other countdown/timer packages but none had this specific attribute. I also tried to start a timer behind the scenes, but it wouldn't align exactly to the main timer and wouldn't account for pausing/unpausing. I was eventually able to figure this out by <a href='https://stackoverflow.com/questions/47296617/how-to-modify-plugins-dart-code-flutter' target="_blank" style='color:#81b29a;size:inherit;'>"hijacking"</a> the package itself and editing it to meet my needs.</i></p>
+
+<div style='margin-top:50px;'>
+<a href="../../projects.html" style='color: inherit;text-decoration:none'>
+  <i class="fa fa-arrow-circle-o-left" ></i>
+  BACK TO PROJECTS
+</a>
+</div>
+</div>
+</body>
+</html>
