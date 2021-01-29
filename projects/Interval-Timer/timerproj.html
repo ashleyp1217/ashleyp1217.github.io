@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ashley Park | Interval Timer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/bba56112c9.js"></script>
+  <script src="{% static '/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+	<script src="{% static '/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+  <style>
+
+    body {
+      padding: 20px;
+      text-align: left;
+      font-family: 'Open Sans', sans-serif;
+    }
+    h1 {
+      font-weight: 0px;
+      font-family: 'DM Serif Display', serif;
+
+    }
+
+    .header{
+      height: 30px;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom:10px;
+
+    }
+
+    .footer{
+      bottom:10px;
+      text-align: center;
+      width:100%;
+
+    }
+
+    input{
+      width:40px;
+      type:text;
+    }
+
+    button{
+      background: #FDD02C;
+      color: #3D3D3D;
+      border-radius: 5px;
+      letter-spacing: 3px;
+      width:110px;
+      height: 40px;
+      margin-bottom:-20px;
+    }
+    button:active{
+      background: #EABB10;
+    }
+
+
+
+
+.mytime{
+  font-size:200px;
+  margin-top:10px;
+  color: black;
+  transition: color 1s ease;
+}
+
+
+.glow {
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 3px;
+  margin-top:-50px;
+  margin-bottom:40px;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+  visibility:hidden;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #4F8EA1, 0 0 20px #4F8EA1, 0 0 25px #4F8EA1, 0 0 30px #4F8EA1, 0 0 35px #4F8EA1;
+  }
+
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 15px #5FABC3, 0 0 20px #5FABC3, 0 0 30px #5FABC3, 0 0 35px #5FABC3, 0 0 40px #5FABC3, 0 0 45px #5FABC3;
+  }
+}
+
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(216,216,216,0.7); /* Black w/ opacity */
+}
+
+.modal-content {
+  color:white;;
+  background-color: rgba(216,216,216,0);
+  padding: 20px;
+  border:none;
+  font-size:300px;
+  text-shadow: 2px 2px grey;
+  letter-spacing: 3px;
+}
+
+
+  </style>
+</head>
+
+
+<body>
+<audio id="beep" src="beep-07.mp3" preload="auto"></audio>
+<audio id="beep0" src="beep-01a.mp3" preload="auto"></audio>
+
+<audio id="complete" src="iphone_alarm_morning.mp3" preload="auto"></audio>
+
+<div class='row'>
+  <div class='col-6'>
+  <a href="../../projects.html"  style='margin-left:20px;color: inherit;text-decoration:none'>
+    <i class="fa fa-arrow-circle-o-left" ></i>
+    BACK TO PROJECTS
+  </a>
+</div>
+
+<div class='col-6' align='right'>
+  <a href="https://github.com/ashleyp1217/Interval-Timer"  style='margin-right:20px;color: inherit;text-decoration:none'>
+    VIEW CODE
+    <i class="fa fa-github" ></i>
+  </a>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class='modal' id = 'modal'>
+  <div class="modal-content" align='center'>
+    <p style='font-size:48px; margin-bottom:-80px; margin-top: 50px;'><b>STARTING IN</b></p>
+    <div><b><span id="starting_countdown">3</span></b></div>
+  </div>
+</div>
+
+
+<div class='Title' style='margin-left:30px'>
+<h1 align='center' style='margin-bottom: 20px; color:#3D3D3D'>Interval Timer</h1>
+</div>
+<div class='Clock' align='center'>
+<form>
+  <table style='margin-top:-50px;margin-bottom:-30px'>
+    <tr>
+      <td style='padding:50px' align='center'>
+        <label for="interval" style='color:#3D3D3D'>INTERVAL</label><br>
+        <input id="intervalmin" name="intervalmin" placeholder="00" style="text-align:right">
+        <a>:</a>
+        <input id="intervalsec" name="intervalsec" placeholder="30">
+      </td>
+      <td style='padding:50px' align='center'>
+        <label for="total" style='color:#3D3D3D'>BREAK</label><br>
+        <input id="breakmin" name="breakmin" placeholder="00" style="text-align:right">
+        <a>:</a>
+        <input id="breaksec" name="breaksec" placeholder="05">
+      </td>
+      <td style='padding:50px' align='center'>
+        <label for="total" style='color:#3D3D3D'>REPETITIONS</label><br>
+        <input id="reps" name="reps" placeholder="20" style="text-align:center">
+      </td>
+    </tr>
+  </table>
+</form>
+
+<button id="startbutton" onclick="myFunction()"  style='display:inline'><b>START</b></button>
+<button id="pause_resume" class="pause" style='display:none'><b><span>PAUSE</span></b></button>
+
+
+
+<div class="mytime"><b><span id="mytime">00:00</span></b></div>
+<div class="glow" id='breaktxt'><b>BREAK</b></div>
+
+<div class="container" style='width:80%; margin-bottom:10px'>
+  <div class="progress" >
+    <div id='progressbar' class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
+    </div>
+  </div>
+</div>
+
+
+<div style='font-size:20px'><b>Rep <span id="myrep">0/20</span></b></div>
+
+
+</div>
+
+
+
+
+<div class='footer' style='margin-bottom:40px;margin-top:40px;font-size:12px' align=center>
+  ashleyp1217@gmail.com |
+  <a href="https://github.com/ashleyp1217" target="_blank" style='color: inherit;'>
+    github.com/ashleyp1217
+  </a>
+  |
+  <a href="https://github.com/ashleyp1217" target="_blank" style='color: inherit;'>
+    linkedin.com/in/ashleyp1217
+  </a>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+
+
+function startTimer(duration,display,onBreak,breaktime,repetitions,displayrep){
+  var timer = duration, minutes,seconds;
+  var totalduration = (timer*repetitions)+(breaktime*(repetitions-1));
+  var rep = 1;
+  var current_progress = 0;
+  var ispaused = false;
+
+
+  var t = setInterval(function(){
+    if(!ispaused){
+    minutes = parseInt(timer/60,10);
+    seconds = parseInt(timer%60,10);
+
+    minutes = minutes<10? "0" + minutes :minutes;
+    seconds = seconds<10 ? "0" + seconds : seconds;
+
+    display.textContent = minutes + ":" + seconds;
+    displayrep.textContent = rep + "/" + repetitions;
+
+    current_progress += (1/totalduration)*100;
+    $("#progressbar")
+      .css("width", current_progress + "%")
+      .attr("aria-valuenow", current_progress);
+
+
+    if (timer <=3){
+      if (timer === 0){
+        document.getElementById('beep0').play();
+
+      }
+      else{
+        document.getElementById('beep').play();
+
+      }
+    }
+    if (--timer<0){
+      //when timer reaches zero
+      if (onBreak){
+        setTimeout(function(){
+          document.getElementById("breaktxt").style.visibility = "hidden";
+          document.getElementById("mytime").style.color = "black";
+        },1000);
+        timer = duration;
+        onBreak=false;
+        ++rep;
+      }
+      else{
+        if (rep===repetitions){
+          clearInterval(t);
+          rep = 0;
+          document.getElementById('complete').play();
+          setTimeout(function() {
+            displayrep.textContent = rep + "/" + repetitions;
+            alert("Done!");
+            //stop alarm once done
+            document.getElementById('complete').pause();
+            document.getElementById('complete').currentTime = 0;
+
+            document.querySelector('#starting_countdown').textContent = "3";
+            //switch buttons once complete
+            document.getElementById("startbutton").style.display = "inline";
+            document.getElementById("pause_resume").style.display = "none";
+          }, 100);
+
+        }
+        else{
+        timer=breaktime;
+        onBreak=true;
+        setTimeout(function(){
+          document.getElementById("breaktxt").style.visibility = "visible";
+          document.getElementById("mytime").style.color = "#5FABC3";
+        },1000);
+      }
+      }
+  }
+}
+},1000);
+
+$('.pause').on('click', function(e) {
+  e.preventDefault();
+  if(ispaused){
+    ispaused = false;
+    document.querySelector("#pause_resume").textContent = "PAUSE";
+  }
+  else{
+    ispaused=true;
+    document.querySelector("#pause_resume").textContent = "RESUME";
+
+  }
+});
+
+document.onkeypress=function(e){
+  e.preventDefault();
+  if(ispaused){
+    ispaused = false;
+    document.querySelector("#pause_resume").textContent = "PAUSE";
+  }
+  else{
+    ispaused=true;
+    document.querySelector("#pause_resume").textContent = "RESUME";
+  }
+}
+
+
+}
+
+
+function myFunction(){
+    var onBreak = false;
+    var min = parseInt(document.getElementById("intervalmin").value);
+    if (isNaN(min)){
+      min = 0;
+    }
+    var sec = parseInt(document.getElementById("intervalsec").value);
+    if (isNaN(sec)){
+      sec = 30;
+    }
+
+    var breakmin = parseInt(document.getElementById("breakmin").value);
+    if (isNaN(breakmin)){
+      breakmin=0;
+    }
+    var breaksec = parseInt(document.getElementById("breaksec").value);
+    if(isNaN(breaksec)){
+      breaksec = 5;
+    }
+    breaktime = ((60*breakmin)+breaksec)
+
+    var repetitions = parseInt(document.getElementById("reps").value);
+    if (isNaN(repetitions)){
+      repetitions=20;
+    }
+
+    var x = ((60*min) + sec), display = document.querySelector('#mytime'),displayrep = document.querySelector('#myrep');
+
+    //countdown from 3
+
+    var timer3=3;
+    document.getElementById("modal").style.display = "block";
+    var t3 = setInterval(function(){
+      document.querySelector('#starting_countdown').textContent = --timer3;
+      if(timer3<0){
+        clearInterval(t3);
+        document.getElementById("modal").style.display = "none";
+      }
+    },1000);
+    //switch buttons
+    document.getElementById("startbutton").style.display = "none";
+    document.getElementById("pause_resume").style.display = "inline";
+
+    //start timer
+    setTimeout(function(){
+      startTimer(x, display,onBreak,breaktime,repetitions,displayrep)
+    },3000);
+
+
+}
+
+</script>
+
+</body>
